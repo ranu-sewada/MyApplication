@@ -1,0 +1,26 @@
+<div class="margin">
+  <h1>Update your profile</h1>
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(@job) do |f| %>
+
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+
+        <%= f.label :post %>
+        <%= f.text_field :post%>
+
+        <%= f.label :experience %>
+        <%= f.text_field :experience %>
+
+        <%= f.label :salary %>
+        <%= f.text_field :salary %>
+
+        <%= f.submit "Save changes", class: "btn btn-primary" %>
+      <% end %>
+
+
+    </div>
+  </div>
+</div>

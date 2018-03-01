@@ -1,0 +1,26 @@
+<% #provide(:title, 'Sign up') %>
+<div class="margin">
+
+
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= form_for(@job,url:jobs_path) do |f| %>
+        <h1>Create New Job</h1>
+      <%= render 'shared/error_messages_job' %>
+
+        <%= f.label :title %>
+        <%= f.text_field :title %>
+
+        <%= f.label :post %>
+        <%= f.text_field :post %>
+        <%= f.label :experience %>
+        <%= f.text_field :experience %>
+
+        <%= f.label :salary %>
+        <%= f.text_field :salary%>
+
+        <%= f.submit "Create ", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

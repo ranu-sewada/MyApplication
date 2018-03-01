@@ -1,0 +1,14 @@
+<div class="margin">
+
+  <table class="users">
+   <% if current_user.has_role? :employee %>
+     <h1>All Applied Users</h1>
+     <% @arr.each do |user| %>
+        <tr>
+         <td></td><td></td><td><%= user.email %></td> <td></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+
+</div>

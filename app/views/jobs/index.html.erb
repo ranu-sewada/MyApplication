@@ -1,0 +1,44 @@
+<div class="margin">
+  <% provide(:title, 'Apply') %>
+
+
+  <table class="users">
+   <% if current_user.has_role? :employee %>
+      <h1>All My Jobs</h1>
+      <% paginate @empjobs %>
+      <% @empjobs.each do |job| %>
+        <tr>
+          <td><%= job.title %></td>
+          <td><%= job.post %></td>
+          <td><%= job.experience %></td>
+          <td><%= job.salary %></td>
+          <td><%= link_to 'Edit', edit_job_path(job) %></td>
+          <td><%= link_to 'View Users', view_job_path(job) %></td>
+        </tr>
+      <% end %>
+    <% end %>
+  </table>
+
+  <table class="users">
+   <% if current_user.has_role? :candidate %>
+     <h1>All Jobs</h1>
+     <%= paginate @jobs %>
+     <% @jobs.each do |job| %>
+       <tr>
+          <td><%= job.title %></td> <td></td>
+          <td><%= job.post %></td> <td></td>
+          <td><%= job.experience %></td> <td></td>
+          <td><%= job.salary %></td><td></td>
+
+          <% if check_applied?(job.id) %>
+            <td><%= link_to 'Apply', apply_for_job_job_path(job) %></td>
+          <%else%>
+            <td><%= link_to 'Cancel', cancel_applied_job_path(job.id) %></td>
+          <% end %>
+        </tr>
+     <% end %>
+    <% end %>
+  </table>
+
+
+</div>
